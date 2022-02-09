@@ -13,11 +13,11 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />    
     <style>
         body{margin: 0; padding: 0;}
-        #map{position: absolute; top: 0;} <!--semicolons needed here-->
+        #map{position: absolute; top: 0; bottom: 0; width: 100%;} <!--semicolons needed here-->
     </style>
 </head>
 <body>
-<div id="map"></div>
+<div id="map">Hello</div>
 
 <script>
 
@@ -25,7 +25,17 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoibGNjaGVuMyIsImEiOiJja3pmMTg0YXAzZGV5Mm9ueDNocW1ncmE0In0.MYIwufjOy78sgrrLXbBB3g';
 
     // add map to page
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/outdoors-v11',
+        center: [-71.091542,42.358862],
+        zoom: 15
+    })
     
+    // add markers
+    var marker = new mapboxgl.Marker()
+      .setLngLat([-71.091542,42.358862])
+      .addTo(map)
 
 </script>
 </body>
@@ -40,5 +50,4 @@ mapbox://styles/mapbox/light-v10
 mapbox://styles/mapbox/dark-v10
 mapbox://styles/mapbox/satellite-v9
 mapbox://styles/mapbox/satellite-streets-v11
-
 -->
