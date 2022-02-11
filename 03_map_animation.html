@@ -1,5 +1,6 @@
 <!-- -------------------------------- -->
-<!-- ------- Marker Animation ------- -->
+<!-- ------- Marker Animation - move marker 
+  multiple spots ------- -->
 <!-- -------------------------------- -->
 
 
@@ -66,12 +67,16 @@
 
   // animate marker
   let counter = 0;
-  function move(){
 
-    // ---------------
-    //    Your Code   
-    // ---------------
-    
+  var walker = function(){
+        if(counter >= busStops.length) return;
+        marker.setLngLat(busStops[counter]); //set marker to bus stop
+        counter++; //inc counter
+        move(); //recall
+      }
+
+  function move(){
+    setTimeout(walker, 1000); // can't do too often, will get banned
   }
 
 </script>
